@@ -1,13 +1,15 @@
 import React from 'react';
-import SearchCocktail from './pages/SearchCocktail';
 import GlobalStyles from './styles/global';
+
+import { CocktailContextProvider } from './hooks/useCocktail';
+import Routes from './routes';
 
 const App: React.FC = () => {
   return (
-    <>
-      <SearchCocktail />
+    <CocktailContextProvider>
+      <Routes />
       <GlobalStyles />
-    </>
+    </CocktailContextProvider>
   );
 };
 

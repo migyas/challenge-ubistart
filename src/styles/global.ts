@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
-    *,
+  *,
   *::after,
   *::before {
     margin: 0;
@@ -9,21 +9,13 @@ export default createGlobalStyle`
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
   }
-  /* *::-webkit-scrollbar {
-    width: 10px;
-  }
-  *::-webkit-scrollbar-track {
-    background: #bcbcbc;
-  }
-  *::-webkit-scrollbar-thumb {
-    background-color:  rgba(0,0,0, 0.45);
-  } */
+
   html {
     font-size: 55%;
   }
   body, input, button {
     font-family: 'Montserrat', sans-serif;
-    background-color: #F9F9F9;
+    background-color: #f5f2f2;
   }
   #root {
     margin: 0 auto;
