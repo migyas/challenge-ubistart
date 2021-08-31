@@ -6,6 +6,7 @@ import {
   Divider,
   CocktailIngredients,
   CocktailIngredientsMeasure,
+  CocktailFeatured,
 } from './styled';
 
 type ResultCardType = {
@@ -68,22 +69,24 @@ const ResultCard: React.FC<ResultCardType> = ({ drink }) => {
   return (
     <Content>
       <ThumbDrink src={drink.strDrinkThumb} alt="cocktail thumb" />
-      <CocktailInstructions>
-        <h2>
-          <strong>{drink.strDrink}</strong> - {drink.strCategory}
-        </h2>
-        <Divider />
-        <p>{drink.strInstructions}</p>
-      </CocktailInstructions>
-      <CocktailIngredients>
-        <h2>Ingredients</h2>
-        <Divider />
-        <CocktailIngredientsMeasure>
-          {ingredientsItems.map(item => (
-            <span>{item}</span>
-          ))}
-        </CocktailIngredientsMeasure>
-      </CocktailIngredients>
+      <CocktailFeatured>
+        <CocktailInstructions>
+          <h2>
+            <strong>{drink.strDrink}</strong> - {drink.strCategory}
+          </h2>
+          <Divider />
+          <p>{drink.strInstructions}</p>
+        </CocktailInstructions>
+        <CocktailIngredients>
+          <h2>Ingredients</h2>
+          <Divider />
+          <CocktailIngredientsMeasure>
+            {ingredientsItems.map(item => (
+              <span>{item}</span>
+            ))}
+          </CocktailIngredientsMeasure>
+        </CocktailIngredients>
+      </CocktailFeatured>
     </Content>
   );
 };

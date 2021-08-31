@@ -13,7 +13,6 @@ import mainLogo from '../../assets/main_logo.svg';
 import imgSearch from '../../assets/search.svg';
 import ResultCard from '../../components/ResultCard';
 import CocktailContext from '../../hooks/useCocktail';
-import api from '../../services/api';
 
 type CocktailTypes = {
   idDrink: string;
@@ -41,33 +40,32 @@ type CocktailTypes = {
 };
 
 const SearchCocktail: React.FC = () => {
-  const { state, setState } = useContext(CocktailContext);
+  const { setState, drinks } = useContext(CocktailContext);
   const [searchField, setSearchField] = useState('');
   const [loading, setLoading] = useState(false);
-  const [drinks, setDrinks] = useState<CocktailTypes[]>([]);
 
   const handleSubmit = async (e: React.SyntheticEvent): Promise<void> => {
     e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
 
     try {
-      setLoading(true);
       const target = e.target as typeof e.target & {
         search: { value: string };
       };
+
       const searchFieldValue = target.search.value;
+      if (searchFieldValue === '') return;
+      setState(searchFieldValue);
       setSearchField(searchFieldValue);
-      const response = await api.get(`search.php?s=${searchFieldValue}`);
-      setDrinks(response.data.drinks);
-      setState(response.data.drinks);
-      setLoading(false);
     } catch (error) {
       console.log(error);
     }
   };
 
-  useEffect(() => {}, [searchField, drinks, loading]);
-
-  console.log(drinks);
+  useEffect(() => {}, [searchField, loading]);
 
   return (
     <>
@@ -111,7 +109,7 @@ const SearchCocktail: React.FC = () => {
             <FeaturedList>
               {drinks?.length > 0 && !loading && (
                 <>
-                  {drinks.map(drink => (
+                  {drinks.map((drink: any) => (
                     <ResultCard key={drink.idDrink} drink={drink} />
                   ))}
                 </>

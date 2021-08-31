@@ -1,22 +1,15 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
+
+import api from '../services/api';
 
 type PropsCocktailContext = {
   state: [];
   setState: React.Dispatch<React.SetStateAction<[]>>;
 };
 
-// const DEFAULT_VALUE = {
-//   state: {
-//     idDrink: '',
-//     strDrink: '',
-//     strCategory: '',
-//     strInstructions: '',
-//     strDrinkThumb: '',
-//   },
-//   setState: () => {},
-// };
 const DEFAULT_VALUE = {
-  state: [],
+  searchInput: '',
+  drinks: [],
   setState: () => {},
 };
 
@@ -25,15 +18,29 @@ const CocktailContext = createContext<PropsCocktailContext[] | any>(
 );
 
 const CocktailContextProvider: React.FC = ({ children }) => {
-  const [state, setState] = useState(DEFAULT_VALUE.state);
-  localStorage.setItem('drinks', JSON.stringify(state));
-  console.log(state);
+  const [state, setState] = useState(DEFAULT_VALUE.searchInput);
+  const [drinks, setDrinks] = useState(DEFAULT_VALUE.drinks);
+
+  useEffect(() => {
+    const data = async () => {
+      try {
+        const response = await api.get(`search.php?s=${state}`);
+        const dataDrinks = response.data.drinks;
+        localStorage.setItem('drinks', JSON.stringify(dataDrinks));
+        setDrinks(dataDrinks);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    data();
+  }, [state]);
 
   return (
     <CocktailContext.Provider
       value={{
         state,
         setState,
+        drinks,
       }}
     >
       {children}

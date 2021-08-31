@@ -101,13 +101,16 @@ const Divider = styled.div`
 
 const FeaturedList = styled.div`
   width: 100%;
+  height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
 
-  @media screen and (max-width: 320px) {
-    padding: 0;
+  flex-wrap: wrap;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1300px) {
+    padding: 0 1rem;
   }
 `;
 
