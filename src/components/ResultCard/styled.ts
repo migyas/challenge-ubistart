@@ -17,6 +17,21 @@ const Content = styled.div`
   @media screen and (max-width: 620px) {
     flex-direction: column;
     max-height: 60rem;
+    margin: 0 auto;
+    margin: 1rem 80px;
+  }
+
+  @media screen and (max-width: 530px) {
+    flex-direction: column;
+    margin: 1rem 40px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    margin: 1rem 20px;
   }
 
   /* @media screen and (min-width: 1250px) {
