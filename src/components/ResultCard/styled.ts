@@ -33,60 +33,6 @@ const Content = styled.div`
   @media screen and (max-width: 360px) {
     margin: 1rem 20px;
   }
-
-  /* @media screen and (min-width: 1250px) {
-    width: calc(33% - 6rem);
-    margin-right: 0;
-    margin-left: 2.75rem;
-
-    &:not(:nth-child(3n)) {
-      margin-right: 4rem;
-    }
-  } */
-
-  /* @media screen and (max-width: 1250px) {
-    width: calc(50% - 2rem);
-    margin-right: 0;
-
-    &:not(:nth-child(2n)) {
-      margin-right: 2rem;
-    }
-  }
-
-  @media screen and (max-width: 720px) {
-    max-width: 24rem;
-
-    width: 100%;
-    margin-bottom: 2rem;
-
-    &:not(:nth-child(2n)) {
-      margin-right: 1rem;
-    }
-  }
-
-  @media screen and (max-width: 620px) {
-    max-width: 30rem;
-
-    width: 100%;
-    margin-bottom: 2rem;
-
-    &:not(:nth-child(2n)) {
-      margin-right: 0;
-    }
-  }
-
-  @media screen and (max-width: 390px) {
-    max-width: 23rem;
-
-    margin-bottom: 1rem;
-  }
-
-  @media screen and (max-width: 280px) {
-    max-width: 19rem;
-
-    width: 100%;
-    margin-bottom: 2rem;
-  } */
 `;
 
 const CocktailFeatured = styled.div`
