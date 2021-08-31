@@ -118,18 +118,6 @@ const CocktailIngredientsMeasure = styled.div`
       }
     }
   }
-  /*
-  @media screen and (max-width: 390px) {
-    flex-direction: column;
-    width: 100%;
-    span {
-      width: 100%;
-      height: 100%;
-      &:not(:nth-child(2n)) {
-        margin-right: 0;
-      }
-    }
-  } */
 `;
 
 const Divider = styled.div`
